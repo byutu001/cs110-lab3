@@ -1,0 +1,254 @@
+/*
+From CS110 Lab 1
+Bea Yutuc
+Mariam Razak
+*/
+
+/* Feel free to edit CSS of body if you'd like. We provide you the light gray background color and font family in the body styling */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #e6ecf0;
+  font-size:14px;
+}
+
+#general-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+#content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+#left {
+  background-color: white;
+  width: 290px;
+  height: 210px;
+}
+
+#right {
+  background-color: white;
+  width: 290px;
+  height: 250px;
+}
+
+#main {
+  background-color: white;
+  width: 500px;
+}
+
+.container{
+  width: 1190px;
+  margin: 56px auto;
+}
+
+#skip {
+  display: none;
+}
+
+.tweet {
+  /*font-weight: bold;
+  display: flex;
+  flex-direction: row; */
+}
+
+
+.regText{
+  color:gray;
+}
+
+
+.link-color{
+  color: gray;
+  font-weight: bold;
+}
+
+.navbar{
+  position: fixed;
+  top: 0;
+  right:0;
+  left: 0;
+  height: 46px;
+  z-index: 100;
+}
+
+.navbar-nav{
+  /* position: fixed; it's fixed already in the bootstrap :) */
+  z-index: 100;
+
+}
+.nav-link{
+  color: #4AB3F4;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.navbar img {
+  margin:0px auto;
+  display:block;
+}
+
+.navbar-brand{
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  left:50%;
+  position: absolute;
+  display: block;
+} 
+
+.nav-link:hover {
+color: #4AB3F4 !important;
+border-bottom: 1px solid #4AB3F4;
+padding-bottom: 3px;
+  
+}
+
+.tweetButton{
+  background-color: #4AB3F4;
+  font-weight: bold;
+  color: white;
+  border-radius: 25px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Handles left hand side */
+.leftTop{
+  z-index: 100;
+  background-color: black;
+  padding: 20px;
+}
+
+.leftTopImage {
+  width: 200px;
+  margin-left:30px;
+}
+
+.leftMiddle{
+  z-index:1000;
+  background-color: white;
+}
+
+.leftMiddleProfilePic{
+  position: absolute;
+  width:65px;
+  height:65px;
+  border-radius: 100px;
+  border: 2px solid white;
+  top: 110px;
+  margin-left: 15px;
+  z-index:1999;
+}
+
+.username{
+  margin-left:95px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.leftBottom{
+  z-index: 1000;
+}
+
+.row{
+  position:absolute;
+  top: 200px;
+  margin-left:2px;
+}
+
+.statTFFnum{
+  padding:4px;
+  font-weight:bold;
+  color: #4AB3F4;
+}
+
+.statTFF{
+  font-weight: bold;
+  color: gray;
+  margin-bottom:10px;
+}
+
+
+/* Center */
+.centerIcon{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  margin: 10px;
+
+}
+
+.centerUsername{
+  margin-left: 65px;
+  margin-top:-50px;
+}
+
+.center-regText{
+  color: gray;
+}
+
+.wrapper{
+  display:grid;
+}
+
+.wrapper{
+  border-bottom: 1px solid #e6ecf0;
+  min-height: 51px;
+}
+
+.borderBot{
+  border-bottom: 1px solid #e6ecf0;
+  min-height: 51px;
+}
+
+
+/* Handles right-hand side */
+.toFollow{
+  font-size: 20px;
+  font-weight: bold;
+  margin-top:10px;
+  margin-left: 10px;
+}
+
+.rightUsername{
+  margin-left: 65px;
+  margin-top:-50px;
+}
+
+.rightIcon1{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  margin: 10px;
+}
+
+.borderBotRight{
+  border-bottom: 1px solid #e6ecf0;
+  width: 270px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.followButton{
+  background-color: white;
+  font-weight: bold;
+  color: #4AB3F4;
+  border-radius: 25px;
+  border: 1px solid #4AB3F4;
+  margin-top:10px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 75px;
+}
+
+/* TODO: Create CSS for your Twitter Mockup */
