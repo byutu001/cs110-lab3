@@ -1,7 +1,9 @@
+
 <!--
-Replication of CS110 Lab 1
-Bea Yutuc
-Mariam Razak
+    CS110 Lab 3 Twitter Server
+    Replication of CS110 Lab 1
+    Bea Yutuc
+    Mariam Razak
 -->
 
 <!DOCTYPE html>
@@ -45,7 +47,7 @@ Mariam Razak
           
       </div>
 
-      <div class="navbar-nav me-auto"> <!-- come back to this -->
+      <div class="navbar-nav me-auto"> 
         <a class="tweetButton" href="#">Tweet</a>
       </div>
 
@@ -97,7 +99,19 @@ Mariam Razak
     </div>
 
 
-    <div id="main" role="main"> 
+    <div id="main" role="main">
+
+     <!-- Lab 3: Adding the searchbar here // form-group adds margin around input --> 
+        <div class="form-group">
+          <input id="searchBar" type="search" placeholder="Search in tweets" class="form-control">
+        </div>
+      
+      <!-- Lab 3: Adding checkbox here -->
+        <div class="form-group">
+          <label>
+              <input type="checkbox" id="enableTweetFetching" />
+              Enable/Disable Tweet Fetching
+        </div>
 
         <div class="wrapper">
           <!--<div class="tweet">-->
@@ -224,5 +238,11 @@ Mariam Razak
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+
+  <!-- Lab 3: Adding these below for Lab 3 Requirements -->
+  <!-- We want moment to load before main bc browser will load the hmtl line-by-line -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+
   </body>
 </html>
