@@ -6,6 +6,7 @@
 
 /* Timer */
 let timer = setInterval(() => {
+    console.log("test");
     fetchTweets();
 }, 5000);
 
@@ -34,30 +35,15 @@ async function fetchTweets() {
         });
 
         tweetList = sortByDate(tweetList);
-
-        let wrapperElement = document.querySelector('.wrapper');
-        wrapperElement.innerHTML = '';
-
         console.log(tweetList);
+        search();
 
-        for (let i = 0; i < tweetList.length; i += 1) {
-            /* querySelecter gets the first element inside the HTML that matches the selector */
-        
-            let tweetElement = document.createElement("div");
-            tweetElement.innerHTML = `
-                <img class="centerIcon" src="images/ratatouille.jpg">
-                
-                <div class="centerUsername"> 
-                    <span style="color:black"><b>Remy </b></span>
-                    <span style="color:gray">@remy ${moment(tweetList[i].created_at).format("MMM DD YYYY HH:MM")}</span>
-                    <div>${tweetList[i].text}</div>
-                </div>
-            `;
-            tweetElement.classList.add("tweet");
-            
-            /* Adds Tweet element to the wrapper */
-            wrapperElement.appendChild(tweetElement);
+        if(searchWord) {
+            display(searchedTweets);
+        }else {
+            display(tweetList);
         }
+
     } catch (err) {
         console.error(err);
     }
@@ -65,14 +51,67 @@ async function fetchTweets() {
 
 fetchTweets();
 
+function display(whichList) {
+    let wrapperElement = document.querySelector('.wrapper');
+    wrapperElement.innerHTML = '';
+
+    console.log(tweetList);
+
+    for (var i = 0; i < whichList.length; i += 1) {
+        /* querySelecter gets the first element inside the HTML that matches the selector */
+    
+        let tweetElement = document.createElement("div");
+        tweetElement.innerHTML = `
+            <img class="centerIcon" src="images/ratatouille.jpg">
+            
+            <div class="centerUsername"> 
+                <span style="color:black"><b>Remy </b></span>
+                <span style="color:gray">@remy ${moment(whichList[i].created_at).format("MMM DD YYYY HH:MM")}</span>
+                <div>${whichList[i].text}</div>
+            </div>
+        `;
+        tweetElement.classList.add("tweet");
+        
+        /* Adds Tweet element to the wrapper */
+        wrapperElement.appendChild(tweetElement);
+    }
+}
+
+
 //stops the setInterval that's calling fetchTweets: clearInterval(timer);
 function stopTimer() {
     clearInterval(timer);
 }
 
-document.getElementById('searchBar').addEventListener('keypress', (event) => {
-    console.log(event.target.value);
-});
+
+let searchedTweets = [];
+let searchWord = false;
+
+function search() {
+    //clear searchedTweets from old one first
+    searchedTweets.splice(0, searchedTweets.length);
+
+    var input = document.getElementById("searchBar");
+    if(input.value.length != 0) {
+        searchWord = true;
+    }
+    else {
+        searchWord = false;
+    }
+    var filter = input.value.toLowerCase();
+    for(var i = 0; i < tweetList.length; i++) {
+        var a = tweetList[i].text;
+        if(a.includes(filter)) {
+            if (!searchedTweets.includes(a.id_str)) {
+                searchedTweets.push(tweetList[i]);
+            }
+        }
+    }
+    //testing
+    for(var x = 0; x < searchedTweets.length; x++) {
+        console.log(searchedTweets[x])
+    }
+}
 
 
 /* Bubble Sort for Tweets */
