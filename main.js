@@ -2,7 +2,7 @@
     CS110 Lab 3
     Bea Yutuc
     Mariam Razak
-*/  
+*/
 
 /* Timer */
 let timer = setInterval(() => {
@@ -61,12 +61,20 @@ function display(whichList) {
         /* querySelecter gets the first element inside the HTML that matches the selector */
     
         let tweetElement = document.createElement("div");
+        let tweetImg = '';
+        if(!checkURL(whichList[i].user.profile_image_url)) {
+             tweetImg = "images/ratatouille.jpg";
+        }
+        else {
+            tweetImg = whichList[i].user.profile_image_url;
+        }
+
         tweetElement.innerHTML = `
-            <img class="centerIcon" src="images/ratatouille.jpg">
+            <img class="centerIcon" src="${tweetImg}">
             
             <div class="centerUsername"> 
-                <span style="color:black"><b>Remy </b></span>
-                <span style="color:gray">@remy ${moment(whichList[i].created_at).format("MMM DD YYYY HH:MM")}</span>
+                <span style="color:black"><b>${whichList[i].user.name} </b></span>
+                <span style="color:gray">@${whichList[i].user.screen_name} ${moment(whichList[i].created_at).format("MMM DD YYYY HH:MM")}</span>
                 <div>${whichList[i].text}</div>
             </div>
         `;
@@ -75,6 +83,16 @@ function display(whichList) {
         /* Adds Tweet element to the wrapper */
         wrapperElement.appendChild(tweetElement);
     }
+}
+
+function checkURL(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    if (http.status != 404)
+        return true;
+    else
+        return false;
 }
 
 
