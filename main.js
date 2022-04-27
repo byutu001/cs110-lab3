@@ -2,7 +2,7 @@
     CS110 Lab 3
     Bea Yutuc
     Mariam Razak
-*/
+*/  
 
 /* Timer */
 let timer = setInterval(() => {
